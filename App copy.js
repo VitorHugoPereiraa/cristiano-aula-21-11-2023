@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
-  const [active, setActive] = useState(0)
 
-  const handleRegister = () => {
+  const handleLogin = () => {
+
+    //Buscar user no firebase e verificar se o type é 0 ou 1 sabendo assim se é admin ou não
     //user
     if(active === 0){
 
@@ -16,13 +17,6 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-     <TouchableOpacity onPress={() => setActive(0)}>
-      <Text style={{color: active === 0 ? 'blue': '#C3C3C3'}}>User</Text>
-     </TouchableOpacity>
-     <TouchableOpacity onPress={() => setActive(1)}>
-     <Text style={{color: active === 1 ? 'blue': '#C3C3C3'}}>Admin</Text>
-     </TouchableOpacity>
-
      <View>
       <TextInput placeholder='name'/>
      </View>
@@ -30,7 +24,7 @@ export default function App() {
       <TextInput placeholder='password'/>
      </View>
      <View>
-      <TouchableOpacity onPress={handleRegister}><Text>Register</Text></TouchableOpacity>
+      <TouchableOpacity onPress={handleLogin}><Text>Login</Text></TouchableOpacity>
      </View>
     </View>
   );
